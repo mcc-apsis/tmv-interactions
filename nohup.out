@@ -1,0 +1,131 @@
+/home/galm/software/django/tmvenv_36/lib/python3.6/site-packages/gensim/matutils.py:737: FutureWarning: Conversion of the second argument of issubdtype from `int` to `np.signedinteger` is deprecated. In future, it will be treated as `np.int64 == np.dtype(int).type`.
+  if np.issubdtype(vec.dtype, np.int):
+0
+1000
+2000
+3000
+4000
+Traceback (most recent call last):
+  File "update_sims.py", line 67, in <module>
+    
+  File "/home/galm/software/django/tmvenv_36/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/home/galm/software/django/tmvenv_36/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(six.next(self))
+  File "/home/galm/software/django/tmvenv_36/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1484, in __next__
+    raw_doc = six.next(self._cursor)
+  File "/home/galm/software/django/tmvenv_36/lib/python3.6/site-packages/pymongo/cursor.py", line 1189, in next
+    if len(self.__data) or self._refresh():
+  File "/home/galm/software/django/tmvenv_36/lib/python3.6/site-packages/pymongo/cursor.py", line 1126, in _refresh
+    self.__send_message(g)
+  File "/home/galm/software/django/tmvenv_36/lib/python3.6/site-packages/pymongo/cursor.py", line 982, in __send_message
+    helpers._check_command_response(first)
+  File "/home/galm/software/django/tmvenv_36/lib/python3.6/site-packages/pymongo/helpers.py", line 152, in _check_command_response
+    raise CursorNotFound(errmsg, code, response)
+pymongo.errors.CursorNotFound: Cursor not found, cursor id: 26500975195
+0
+728
+0
+[<scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>]
+Traceback (most recent call last):
+  File "doc_comparison.py", line 223, in <module>
+    main()
+  File "doc_comparison.py", line 191, in main
+    sims.append(pool.map(partial(compare,),s_docs))
+  File "/home/galm/software/django/tmv/venv/lib/python3.6/site-packages/multiprocess/pool.py", line 260, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+  File "/home/galm/software/django/tmv/venv/lib/python3.6/site-packages/multiprocess/pool.py", line 602, in get
+    self.wait(timeout)
+  File "/home/galm/software/django/tmv/venv/lib/python3.6/site-packages/multiprocess/pool.py", line 599, in wait
+    self._event.wait(timeout)
+  File "/usr/lib/python3.6/threading.py", line 551, in wait
+    signaled = self._cond.wait(timeout)
+  File "/usr/lib/python3.6/threading.py", line 295, in wait
+    waiter.acquire()
+KeyboardInterrupt
+0
+728
+0
+[<scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>]
+1
+[<scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>]
+2
+[<scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>]
+3
+[<scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>]
+4
+[<scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>]
+5
+[<scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>]
+Traceback (most recent call last):
+  File "doc_comparison.py", line 223, in <module>
+    main()
+  File "doc_comparison.py", line 205, in main
+    similarity.objects.insert(sims)
+  File "/home/galm/software/django/tmv/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 356, in insert
+    inserted_result = insert_func(raw)
+  File "/home/galm/software/django/tmv/venv/lib/python3.6/site-packages/pymongo/collection.py", line 753, in insert_many
+    blk.execute(write_concern, session=session)
+  File "/home/galm/software/django/tmv/venv/lib/python3.6/site-packages/pymongo/bulk.py", line 521, in execute
+    return self.execute_command(generator, write_concern, session)
+  File "/home/galm/software/django/tmv/venv/lib/python3.6/site-packages/pymongo/bulk.py", line 344, in execute_command
+    with client._tmp_session(session) as s:
+  File "/usr/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/home/galm/software/django/tmv/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1576, in _tmp_session
+    s = self._ensure_session(session)
+  File "/home/galm/software/django/tmv/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1563, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "/home/galm/software/django/tmv/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1516, in __start_session
+    server_session = self._get_server_session()
+  File "/home/galm/software/django/tmv/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1549, in _get_server_session
+    return self._topology.get_server_session()
+  File "/home/galm/software/django/tmv/venv/lib/python3.6/site-packages/pymongo/topology.py", line 427, in get_server_session
+    None)
+  File "/home/galm/software/django/tmv/venv/lib/python3.6/site-packages/pymongo/topology.py", line 199, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 111] Connection refused
+0
+728
+0
+[<scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>]
+  File "doc_comparison.py", line 113
+    dc2 = Doc.objects.filter(
+      ^
+SyntaxError: invalid syntax
+0
+728
+0
+[<scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>]
+Traceback (most recent call last):
+  File "doc_comparison.py", line 268, in <module>
+    main()
+  File "doc_comparison.py", line 234, in main
+    sims.append(pool.map(partial(compare,model=model),s_docs))
+  File "/home/galm/software/django/tmv/venv/lib/python3.6/site-packages/multiprocess/pool.py", line 260, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+  File "/home/galm/software/django/tmv/venv/lib/python3.6/site-packages/multiprocess/pool.py", line 602, in get
+    self.wait(timeout)
+  File "/home/galm/software/django/tmv/venv/lib/python3.6/site-packages/multiprocess/pool.py", line 599, in wait
+    self._event.wait(timeout)
+  File "/usr/lib/python3.6/threading.py", line 551, in wait
+    signaled = self._cond.wait(timeout)
+  File "/usr/lib/python3.6/threading.py", line 295, in wait
+    waiter.acquire()
+KeyboardInterrupt
+0
+728
+0
+[<scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>, <scopus_doc: scopus_doc object>]
+1
+[]
+Traceback (most recent call last):
+  File "doc_comparison.py", line 268, in <module>
+    main()
+  File "doc_comparison.py", line 248, in main
+    similarity.objects.insert(sims)
+  File "/home/galm/software/django/tmv/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 356, in insert
+    inserted_result = insert_func(raw)
+  File "/home/galm/software/django/tmv/venv/lib/python3.6/site-packages/pymongo/collection.py", line 738, in insert_many
+    raise TypeError("documents must be a non-empty list")
+TypeError: documents must be a non-empty list
